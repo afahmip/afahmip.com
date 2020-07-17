@@ -2,7 +2,8 @@ import React from "react"
 import { Link } from "gatsby"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import Layout from '../components/layout'
+import Layout from '../components/Layout'
+import Gallery from '../components/Gallery'
 import '../styles/main.scss'
 
 
@@ -21,7 +22,7 @@ const IndexPage = () => (
       <div>
         <h2>Hi there!</h2>
         <h1>I'm Fahmi.</h1>
-        <p>I'm a software engineer who places his heart on arts. I do illustrations, user interfaces, as well as building apps.</p>
+        <p>I'm a software engineer who places his heart on arts.&nbsp;<br/>I do illustrations, user interfaces, as well as building apps.</p>
         <div className="header-btn">
           <button className="btn-github">
             <FontAwesomeIcon icon={['fab', 'github']} />
@@ -35,6 +36,7 @@ const IndexPage = () => (
         </div>
       </div>
     </div>
+    <Gallery />
   </Layout>
 )
 

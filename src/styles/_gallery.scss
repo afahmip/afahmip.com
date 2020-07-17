@@ -1,0 +1,15 @@
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 25vh;
+}
+
+.gallery-item-wrapper {
+  padding: 8px;
+  div {
+    background: gray;
+    height: 300px;
+    width: 300px;
+    border-radius: 10px;
+  }
+}

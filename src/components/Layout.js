@@ -12,8 +12,7 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 
-import Header from "./header"
-import "./layout.css"
+import Header from "./Header"
 
 library.add(fab)
 
