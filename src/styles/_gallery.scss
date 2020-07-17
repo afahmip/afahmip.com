@@ -1,15 +1,82 @@
+@import './variables';
+
+$pad: 8px;
+$base: calc(#{$layout-desktop} / 6 - (2 * #{$pad}));
+
 .gallery {
   display: flex;
   flex-wrap: wrap;
   padding-top: 25vh;
 }
 
-.gallery-item-wrapper {
-  padding: 8px;
-  div {
-    background: gray;
-    height: 300px;
-    width: 300px;
-    border-radius: 10px;
+.gallery-item {
+  cursor: pointer;
+  margin: $pad;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  height: calc(#{$base} * 2);
+  background: #ecebeb;
+  position: relative;
+  transition-duration: 0.2s;
+
+  img {
+    overflow: hidden;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  &:hover {
+    .gallery-overlay {
+      display: block;
+    }
+  }
+
+  &-1 {
+    @extend .gallery-item;
+    width: $base;
+  }
+  &-2 {
+    @extend .gallery-item;
+    width: calc(#{$base} * 2 + #{$pad} * 2);
+  }
+  &-3 {
+    @extend .gallery-item;
+    width: calc(#{$base} * 3 + #{$pad} * 4);
+  }
+  &-4 {
+    @extend .gallery-item;
+    width: calc(#{$base} * 4 + #{$pad} * 6);
+  }
+  &-5 {
+    @extend .gallery-item;
+    width: calc(#{$base} * 5 + #{$pad} * 8);
+  }
+  &-6 {
+    @extend .gallery-item;
+    width: calc(#{$base} * 6 + #{$pad} * 10);
+  }
+}
+
+.gallery-overlay {
+  display: none;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 100%;
+  transition-duration: 0.2s;
+}
+
+.gallery-info {
+  padding: 16px;
+  bottom: 0;
+  position: absolute;
+
+  p {
+    color: white;
+    font-weight: 600;
+    font-size: 1.5rem;
   }
 }
