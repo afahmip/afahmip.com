@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+@import './responsive';
+@import './header';
 
 * {
   font-family: 'Open Sans', sans-serif;
@@ -9,55 +11,6 @@
   max-width: 960px;
   margin: 0 auto;
   padding-top: 12vh;
-}
-
-.header {
-  display: flex;
-  max-width: 700px;
-  margin: 0 auto;
-  h2 {
-    font-size: 1.7rem;
-    font-weight: 600;
-  }
-  h1 {
-    font-size: 2.5rem;
-    font-weight: 600;
-  }
-  p {
-    font-size: 1rem;
-    line-height: 1.75rem;
-  }
-}
-
-.header-btn {
-  display: flex;
-  padding-top: 5px;
-  button {
-    margin-right: 12px;
-  }
-}
-
-.header-pics {
-  display: flex;
-  margin-right: 40px;
-}
-
-.header-pic-long {
-  height: calc(400px + 8px);
-  width: 200px;
-  border-radius: 8px;
-  &:first-child {
-    margin: 8px 0 8px 0;
-    background-color: rgb(206, 206, 206);
-  }
-}
-
-.header-pic-square {
-  background-color: rgb(206, 206, 206);
-  width: 200px;
-  height: 200px;
-  border-radius: 8px;
-  margin: 8px;
 }
 
 .btn {
@@ -120,40 +73,19 @@
   }
 }
 
-@media screen and (max-width: 900px) {
-  .header {
-    max-width: 550px;
-    h2 {
-      font-size: 1.15rem;
-      margin-bottom: 0.5rem;
-    }
-    h1 {
-      font-size: 1.85rem;
-      margin: 1rem 0;
-    }
-    p {
-      font-size: 0.8rem;
-      line-height: 1.35rem;
-      margin-bottom: 1rem;
-    }
+@include device(tablet) {
+  .layout {
+    max-width: 85vw;
   }
-
-  $header-width: 140px;
-  .header-pics {
-    margin-right: 35px;
-  }
-  .header-pic-long {
-    width: $header-width;
-    height: calc(#{$header-width} * 2 + 8px);
-  }
-  .header-pic-square {
-    width: $header-width;
-    height: $header-width;
-  }
-
   .btn {
     height: 35px;
     width: 35px;
     font-size: 18px;
+  }
+}
+
+@include device(mobile) {
+  .layout {
+    padding-top: 10vh;
   }
 }

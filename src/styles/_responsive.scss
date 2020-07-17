@@ -1,0 +1,17 @@
+@mixin device($class) {
+  @if $class == mobile {
+    @media screen and (max-width: 500px) { @content; }
+  }
+  // @if $class == mobile-h {
+  //   @media screen and (max-width: 500px) { @content; }
+  // }
+  @else if $class == tablet {
+    @media screen and (max-width: 900px) { @content; }
+  }
+  @else if $class == desktop-sm {
+    @media screen and (max-width: 400px) { @content; }
+  }
+  @else if $class == desktop {
+    @media screen and (min-width: 1024px) and (orientation: horizontal) { @content; }
+  }
+}

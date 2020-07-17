@@ -10,8 +10,10 @@ const IndexPage = () => (
   <Layout>
     <div className="header">
       <div className="header-pics">
-        <div className="header-pic-long"></div>
-        <div className="header-pic-long">
+        <div className="header-container">
+          <div className="header-pic-long"></div>
+        </div>
+        <div className="header-container">
           <div className="header-pic-square"></div>
           <div className="header-pic-square"></div>
         </div>
