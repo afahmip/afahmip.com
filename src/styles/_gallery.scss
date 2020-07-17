@@ -1,4 +1,5 @@
 @import './variables';
+@import './responsive';
 
 $pad: 8px;
 $base: calc(#{$layout-desktop} / 6 - (2 * #{$pad}));
@@ -17,7 +18,7 @@ $base: calc(#{$layout-desktop} / 6 - (2 * #{$pad}));
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-  height: calc(#{$base} * 2);
+  height: calc(#{$base} * 2 + #{$pad} * 2);
   background: #ecebeb;
   position: relative;
   transition-duration: 0.2s;
@@ -34,29 +35,11 @@ $base: calc(#{$layout-desktop} / 6 - (2 * #{$pad}));
     }
   }
 
-  &-1 {
-    @extend .gallery-item;
-    width: $base;
-  }
-  &-2 {
-    @extend .gallery-item;
-    width: calc(#{$base} * 2 + #{$pad} * 2);
-  }
-  &-3 {
-    @extend .gallery-item;
-    width: calc(#{$base} * 3 + #{$pad} * 4);
-  }
-  &-4 {
-    @extend .gallery-item;
-    width: calc(#{$base} * 4 + #{$pad} * 6);
-  }
-  &-5 {
-    @extend .gallery-item;
-    width: calc(#{$base} * 5 + #{$pad} * 8);
-  }
-  &-6 {
-    @extend .gallery-item;
-    width: calc(#{$base} * 6 + #{$pad} * 10);
+  @for $i from 1 through 6 {
+    &-#{$i} {
+      @extend .gallery-item;
+      width: calc(#{$base} * #{$i} + #{$pad} * (#{$i} - 1) * 2 );
+    }
   }
 }
 
@@ -78,5 +61,32 @@ $base: calc(#{$layout-desktop} / 6 - (2 * #{$pad}));
     color: white;
     font-weight: 600;
     font-size: 1.5rem;
+  }
+}
+
+@include device(tablet) {
+  $pad: 4px;
+  $base: calc(#{$layout-tablet} / 6 - (2 * #{$pad}));
+
+  .gallery-item {
+    margin: $pad;
+    height: calc(#{$base} * 2 + #{$pad} * 2);
+
+    @for $i from 1 through 6 {
+      &-#{$i} {
+        width: calc(#{$base} * #{$i} + #{$pad} * (#{$i} - 1) * 2 );
+      }
+    }
+  }
+}
+
+@include device(mobile) {
+  .gallery {
+    flex-direction: column;
+  }
+  .gallery-item {
+    width: $layout-tablet;
+    height: auto;
+    margin: 6px 0;
   }
 }
